@@ -17,12 +17,17 @@ const mapThemeToStyle = ({
                             color,
                             number,
                             string
-                         }) => ({
-    ...(color.keyColor && {backgroundColor: color.keyColor} || {}),
-    color: color.textLight,
-    borderRadius: number.buttonRadius,
-    fontFamily: string.mainFontFamily
-});
+                         }) => {
+    console.log("color:", color)
+    console.log("number:", number)
+    console.log("string:", string)
+    return {
+        backgroundColor: color.keyColor,
+        color: color.textLight,
+        borderRadius: number.buttonRadius,
+        fontFamily: string.mainFontFamily
+    };
+};
 
 const style = {
     backgroundColor: 'grey',
@@ -49,6 +54,8 @@ const style = {
 };
 
 const enhance = compose(
+
+
     getTheme, // using the container's defined theme
     themeStyle(mapThemeToStyle), // apply the default theme to the component
     mapProps(props => ({

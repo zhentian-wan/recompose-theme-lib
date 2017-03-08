@@ -27,9 +27,72 @@ class App extends Component {
                     <h2>Welcome to React</h2>
                 </div>
                 <main className="container">
-                    <section>
-                        <Button style={{ 'backgroundColor': 'black' }}>Button</Button>
-                    </section>
+                    <Button>Button</Button>
+                    <label>Background color: </label>
+                    <input
+                        value={theme.color.keyColor}
+                        onChange={
+                            (e) => {
+                                updateTheme({
+                                                ...theme,
+                                                color: {
+                                                    ...theme.color,
+                                                    keyColor: e.target.value
+                                                }
+                                            })
+                            }
+                        }
+                    />
+                    <br/>
+                    <label>Text color: </label>
+                    <input
+                        value={theme.color.textLight}
+                        onChange={
+                            (e) => {
+                                updateTheme({
+                                                ...theme,
+                                                color: {
+                                                    ...theme.color,
+                                                    textLight: e.target.value
+                                                }
+                                            })
+                            }
+                        }
+                    />
+                    <br/>
+                    <label>button radius: </label>
+                    <input
+                        value={theme.number.buttonRadius}
+                        type="number"
+                        onChange={
+                            (e) => {
+                                updateTheme({
+                                                ...theme,
+                                                number: {
+                                                    ...theme.number,
+                                                    buttonRadius: Number(e.target.value)
+                                                }
+                                            })
+                            }
+                        }
+                    />
+                    <br/>
+                    <label>Font family: </label>
+                    <input
+                        value={theme.string.mainFontFamily}
+                        type="text"
+                        onChange={
+                            (e) => {
+                                updateTheme({
+                                                ...theme,
+                                                string: {
+                                                    ...theme.number,
+                                                    mainFontFamily: e.target.value
+                                                }
+                                            })
+                            }
+                        }
+                    />
                 </main>
             </div>
         );
