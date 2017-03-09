@@ -13,9 +13,13 @@ export const getTheme = getContext({
                                                               })
                                    });
 
+export const getButtonGroup = getContext({
+    buttonGroup: PropTypes.bool
+                                         });
+
 export const themeStyle = mapThemeToStyle => mapProps(
     props => {
-        const {theme, style} = props;
+        const { theme, style } = props;
 
         return {
             ...props,
@@ -25,4 +29,13 @@ export const themeStyle = mapThemeToStyle => mapProps(
             ]
         };
     }
-)
+);
+
+export const addStyle = style => mapProps(
+    props => ({
+        ...props,
+        style: [
+            style,
+            props.style,
+        ]
+    }));

@@ -10,19 +10,23 @@ import Radium from 'radium';
 
 import {
     getTheme,
-    themeStyle
+    themeStyle,
+    addStyle,
+    getButtonGroup
 } from './hocs';
 
 const mapThemeToStyle = ({
                             color,
                             number,
                             string
-                         }) => {
-    console.log("color:", color)
-    console.log("number:", number)
-    console.log("string:", string)
+                         }, props) => {
     return {
-        backgroundColor: color.keyColor,
+        ...(color.keyColor &&
+            {backgroundColor: color.keyColor} || {}
+        ),
+        ...(props.buttonGroup &&
+            {margin: number.buttonGroupSpace} || {}
+        ),
         color: color.textLight,
         borderRadius: number.buttonRadius,
         fontFamily: string.mainFontFamily
@@ -30,7 +34,7 @@ const mapThemeToStyle = ({
 };
 
 const style = {
-    backgroundColor: 'grey',
+    backgroundColor: 'red',
     borderWidth: 0,
     borderStyle: 'solid',
     boxSizing: 'border-box',
@@ -54,17 +58,10 @@ const style = {
 };
 
 const enhance = compose(
-
-
+    getButtonGroup,
     getTheme, // using the container's defined theme
     themeStyle(mapThemeToStyle), // apply the default theme to the component
-    mapProps(props => ({
-        ...props,
-        style: [
-            style,
-            props.style,
-        ]
-    })),
+    addStyle(style),
     setDisplayName('Button'),
     defaultProps({
         element: 'button'
