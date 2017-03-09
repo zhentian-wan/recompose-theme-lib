@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { compose, withState } from 'recompose';
+import { compose, withState, withContext } from 'recompose';
 import './App.css';
 
 import myDefaultTheme from './themes/default';
@@ -7,13 +7,6 @@ import Button from './components/Button';
 import ButtonGroup from './components/ButtonGroup';
 
 class App extends Component {
-    static childContextTypes = {
-        theme: React.PropTypes.object
-    };
-
-    getChildContext() {
-        return { theme: this.props.theme }
-    }
 
     render() {
         const { theme, updateTheme } = this.props;
@@ -125,6 +118,10 @@ class App extends Component {
 }
 
 const enhance = compose(
-    withState('theme', 'updateTheme', myDefaultTheme)
+    withState('theme', 'updateTheme', myDefaultTheme),
+    withContext(
+        {theme: React.PropTypes.object},
+        (props) => ({theme: props.theme})
+    )
 );
 export default enhance(App);
