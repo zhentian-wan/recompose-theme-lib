@@ -6,6 +6,14 @@ import myDefaultTheme from './themes/default';
 import Button from './components/Button';
 import ButtonGroup from './components/ButtonGroup';
 
+import styled from 'styled-components';
+const TomatoButton = styled(Button)`
+  color: tomato;
+  border-color: tomato;
+  font-size: 2em;
+  background-color: white;
+`;
+
 class App extends Component {
 
     render() {
@@ -14,12 +22,12 @@ class App extends Component {
             <div className="App">
 
                 <p>
-                    <Button element={'a'}>Button</Button>
+                    <TomatoButton element={'button'}>Button</TomatoButton>
                 </p>
                 <p>
-                    <ButtonGroup isVertical>
-                        <Button element={'a'}>Click</Button>
-                        <Button element={'a'}>Click</Button>
+                    <ButtonGroup >
+                        <Button element={'button'}>Click</Button>
+                        <Button element={'button'}>Click</Button>
                     </ButtonGroup>
                 </p>
                 <div>
