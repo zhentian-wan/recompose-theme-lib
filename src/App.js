@@ -5,6 +5,24 @@ import './App.css';
 import myDefaultTheme from './themes/default';
 import Button from './components/Button';
 import ButtonGroup from './components/ButtonGroup';
+import User from './components/Toggle';
+
+import styled from 'styled-components';
+
+// Overwrite a third part lib
+const TomatoButton = styled(Button)`
+  color: tomato;
+  border-color: tomato;
+  font-size: 2em;
+  background-color: white;
+`;
+
+const style = {
+    color: 'tomato',
+    borderColor: 'tomato',
+    fontSize: 20,
+    backgroundColor: 'white'
+};
 
 class App extends Component {
 
@@ -12,9 +30,9 @@ class App extends Component {
         const { theme, updateTheme } = this.props;
         return (
             <div className="App">
-
+                <User name="Zhentian" status="active"/>
                 <p>
-                    <Button element={'a'}>Button</Button>
+                    <TomatoButton element={'button'} style={style}>Button</TomatoButton>
                 </p>
                 <p>
                     <ButtonGroup isVertical>

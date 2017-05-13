@@ -6,8 +6,10 @@ export default {
     number: {
         buttonRadius: 5,
         buttonGroupSpace: 6,
+        fontSize: 1
     },
     string: {
-        mainFontFamily: 'sans-serif'
+        mainFontFamily: 'sans-serif',
+        border: "2px solid palevioletred"
     }
 }

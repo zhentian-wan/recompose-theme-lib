@@ -1,40 +1,35 @@
 import React, {PropTypes} from 'react';
 
 import {
-    addStyle,
-    getTheme,
-    themeStyle
-} from './hocs';
-import {
     setDisplayName,
     withContext,
     compose
 } from 'recompose';
 import Radium from 'radium';
+import styled from 'styled-components';
 
-const mapThemeToStyle = ({number}, porps) => ({
-    padding: (number.buttonGroupSpace || 6) * 1,
-    flexDirection: porps.isVertical ? 'column': 'row'
-});
+const Wrapper = styled.div`
+    display: flex;
+    flex-direction: ${props => props.isVertical ? 'column': 'row'};
+    align-items: center;
+    justify-content: center;
+    padding: 6px;
+`;
 
-const ButtonGroup = ({ children, ...rest }) => (
-    <div {...rest}>
-        {children}
-    </div>
-);
+const ButtonGroup = ({children, ...rest}) => {
+    return (
+        <Wrapper {...rest}>
+            {children}
+        </Wrapper>
+    );
+};
 
 const enhance = compose(
     setDisplayName('ButtonGroup'),
-    getTheme,
-    themeStyle(mapThemeToStyle),
     withContext(
         {buttonGroup: PropTypes.bool},
         (props) => ({buttonGroup: true})
     ),
-    addStyle({
-        padding: 6,
-        display: 'flex'
-             }),
     Radium
 );
 
