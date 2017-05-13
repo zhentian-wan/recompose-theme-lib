@@ -5,6 +5,7 @@ import './App.css';
 import myDefaultTheme from './themes/default';
 import Button from './components/Button';
 import ButtonGroup from './components/ButtonGroup';
+import User from './components/Toggle';
 
 import styled from 'styled-components';
 
@@ -29,7 +30,7 @@ class App extends Component {
         const { theme, updateTheme } = this.props;
         return (
             <div className="App">
-
+                <User name="Zhentian" status="active"/>
                 <p>
                     <TomatoButton element={'button'} style={style}>Button</TomatoButton>
                 </p>
