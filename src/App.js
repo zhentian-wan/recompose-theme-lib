@@ -6,7 +6,9 @@ import myDefaultTheme from './themes/default';
 import Button from './components/Button';
 import ButtonGroup from './components/ButtonGroup';
 import User from './components/Toggle';
+import User3 from './components/Toggle3';
 import User2 from './components/Toggle2';
+import {ActiveUsers, InactiveUsers, PendingUsers} from './components/UserList';
 
 import styled from 'styled-components';
 
@@ -25,14 +27,27 @@ const style = {
     backgroundColor: 'white'
 };
 
+const users = [
+    { name: "Tim", status: 'active' },
+    { name: "Bob", status: 'active' },
+    { name: "Joe", status: 'pending' },
+    { name: "Jim", status: 'inactive' },
+];
+
 class App extends Component {
 
     render() {
         const { theme, updateTheme } = this.props;
         return (
             <div className="App">
+                <section>
+                    <ActiveUsers users={users}/>
+                    <InactiveUsers users={users}/>
+                    <PendingUsers users={users}/>
+                </section>
                 <User name="Zhentian" status="active"/>
                 <User2 name="Wan" status="inactivate"/>
+                <User3 name="Tian" status="inactivate"/>
                 <p>
                     <TomatoButton element={'button'} style={style}>Button</TomatoButton>
                 </p>
