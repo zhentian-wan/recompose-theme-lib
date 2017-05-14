@@ -6,6 +6,7 @@ import myDefaultTheme from './themes/default';
 import Button from './components/Button';
 import ButtonGroup from './components/ButtonGroup';
 import User from './components/Toggle';
+import User2 from './components/Toggle2';
 
 import styled from 'styled-components';
 
@@ -31,6 +32,7 @@ class App extends Component {
         return (
             <div className="App">
                 <User name="Zhentian" status="active"/>
+                <User2 name="Wan" status="inactivate"/>
                 <p>
                     <TomatoButton element={'button'} style={style}>Button</TomatoButton>
                 </p>
