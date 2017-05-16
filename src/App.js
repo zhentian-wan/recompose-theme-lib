@@ -9,6 +9,7 @@ import User from './components/Toggle';
 import User3 from './components/Toggle3';
 import User4 from './components/Toggle4';
 import User5 from './components/Toggle5';
+import User6 from './components/Toggle6';
 import User2 from './components/Toggle2';
 import {ActiveUsers, InactiveUsers, PendingUsers} from './components/UserList';
 
@@ -42,16 +43,10 @@ class App extends Component {
         const { theme, updateTheme } = this.props;
         return (
             <div className="App">
+
                 <section>
-                    <ActiveUsers users={users}/>
-                    <InactiveUsers users={users}/>
-                    <PendingUsers users={users}/>
+                    <User6/>
                 </section>
-                <User name="Zhentian" status="active"/>
-                <User2 name="Wan" status="inactivate"/>
-                <User3 name="Tian" status="inactivate"/>
-                <User4 />
-                <User5/>
                 <p>
                     <TomatoButton element={'button'} style={style}>Button</TomatoButton>
                 </p>
